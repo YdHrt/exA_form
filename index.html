@@ -2,6 +2,8 @@
   参考サイト https://zenn.dev/yurukei20/articles/9741118bfb5ee0 
 https://www.mgtnsn.com/blog/google-form-original-html-css/
 -->
+
+<!-- formによってformのactionと質問inputのnameを変更する -->
 <!-- <formで検索 -->
 <!-- entry.　で検索 -->
 
@@ -20,7 +22,7 @@ https://www.mgtnsn.com/blog/google-form-original-html-css/
     <!-- 被験者番号 -->
     <div class="user-id box">
         <h2 class="question">被験者番号</h2>
-        <input type="text" name="entry.366340186" autocomplete="id" required>
+        <input type="text" name="entry.366340186" autocomplete="id" id="subjectID" required>
     </div>
     <!-- ここまで被験者番号 -->
 
@@ -486,9 +488,10 @@ https://www.mgtnsn.com/blog/google-form-original-html-css/
 
     <!-- ここから提出ボタン -->
     <div class="submit">
-        <button type="submit" class="btn btn-primary">送信</button>
+        <button type="submit" class="btn btn-primary" onclick="set_subject_id()">送信</button>
     </div>
     <!-- ここまで提出ボタン -->
+
 
 
 </form>
@@ -630,3 +633,25 @@ https://www.mgtnsn.com/blog/google-form-original-html-css/
         }
     }
 </style>
+
+<script>
+    window.onload = function() {
+        // ページ読み込み時に実行したい処理
+        get_subject_id();
+    }
+
+    // 被験者番号を保存
+    function set_subject_id() {
+        try {
+            localStorage.setItem("subjectID", document.getElementById('subjectID').value);
+        } catch (error) {}
+    }
+
+    // 被験者の読み込み
+    function get_subject_id() {
+        try {
+            var subject_ID = localStorage.getItem("subjectID");
+            document.getElementById('subjectID').value = subject_ID;
+        } catch (error) {}
+    }
+</script>
