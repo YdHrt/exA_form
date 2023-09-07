@@ -1,0 +1,158 @@
+<!--参考サイト https://zenn.dev/yurukei20/articles/9741118bfb5ee0 -->
+
+
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
+
+
+<form action="https://docs.google.com/forms/u/0/d/e/1FAIpQLScbDZsb1cOgc5oD_1bRw1wr-FxKJ-crGCiHQv4-XqLqA5nz9A/formResponse" method="POST" id="mG61Hd" class="wrapper" target="_self" onsubmit="submitted=true;">
+
+    <div class="title box">
+        <h1>タイトル</h1>
+    </div>
+    <div class="user-id box">
+        <h2 class="question">被験者番号</h2>
+        <input type="text" name="id" autocomplete="id" required>
+    </div>
+    <div class="box">
+        <h2 class="question">実験条件</h2>
+        <input type="text" name="entry.366340186" required>
+    </div>
+
+
+    <!-- ここからスライダー -->
+    <div class="form-slider box">
+        <h2 class="question">スライダー</h2>
+        <div class="slider-wrapper">
+            <input class="slider" type="range" name="entry.721419540" value="0.5" min="0" max="1" step="0.0001" oninput="document.getElementById('output1').value=this.value" required>
+        </div>
+        <div style="float: left; padding-top: 10px;">全く思わない</div>
+        <div style="float: right; padding-top: 10px;">全く思う</div>
+
+        <br>
+    </div>
+    <!-- ここまでスライダー -->
+
+
+    <!-- ここから自由記述 -->
+    <div class="form-text box">
+        <h2 class="question">自由記述</h2>
+        <textarea name="entry.61489854" class="form-control text-area" rows="3" required></textarea><br>
+    </div>
+    <!-- ここまで自由記述 -->
+
+    <!-- ここから提出ボタン -->
+    <div class="submit">
+        <button type="submit" class="btn btn-primary">送信</button>
+    </div>
+    <!-- ここまで提出ボタン -->
+
+
+</form>
+
+<style>
+    /* Track: Chrome, Safari, Opera, Edge Chromium */
+    
+    input[type="range"]::-webkit-slider-runnable-track {
+        background: #c8c8c8;
+        height: 5px;
+    }
+    /* Thumb: Chrome, Safari, Opera, Edge Chromium */
+    
+    input[type="range"]::-webkit-slider-thumb {
+        /* -webkit-appearance: none;
+        appearance: none; */
+        margin-top: -5px;
+        background-color: #808080;
+    }
+    
+    .wrapper {
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        width: 50%;
+    }
+    
+    .contents {
+        background-color: black;
+    }
+    
+    .box {
+        width: 80%;
+        margin: 0.5em auto;
+        border: 2px solid #000;
+        border-radius: 15px;
+        padding: 5%;
+    }
+    
+    .text-area {
+        width: 100%;
+    }
+    
+    .slider-wrapper {
+        text-align: center;
+    }
+    
+    .slider {
+        width: 90%;
+        accent-color: black;
+    }
+    
+    .submit {
+        width: 80%;
+        margin: 0.5em auto;
+        text-align: right;
+        padding: 5%;
+    }
+    
+    .btn {
+        width: 15%;
+        height: 40px;
+        color: black;
+        background-color: #ffffff;
+        /* border-color: aqua; */
+        border: 1px solid black;
+    }
+    
+    .btn:hover {
+        color: #ffffff;
+        background-color: #c8c8c8;
+    }
+    
+    @media screen and (max-width: 768px) {
+        .wrapper {
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+        /* input[type="range"]::-webkit-slider-runnable-track { */
+        /* background: #c8c8c8; */
+        /* height: 5px; */
+        /* } */
+        /* Thumb: Chrome, Safari, Opera, Edge Chromium */
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            height: 20px;
+            width: 20px;
+            /* margin-top: -1px; */
+            margin-top: -8px;
+            border-radius: 50%;
+            background-color: #808080;
+            /* background: #808080; */
+        }
+        .btn {
+            width: 30%;
+        }
+    }
+    
+    input {
+        /*ズームしないように */
+        font-size: 16px;
+    }
+    
+    textarea {
+        /*ズームしないように */
+        font-size: 16px;
+    }
+</style>
