@@ -488,15 +488,24 @@ https://www.mgtnsn.com/blog/google-form-original-html-css/
 
     <!-- ここから提出ボタン -->
     <div class="submit">
-        <button type="submit" class="btn btn-primary" onclick="set_subject_id()">送信</button>
+        <button type="submit" class="btn btn-primary" id="submitBtn" onclick="set_subject_id()">送信</button>
     </div>
     <!-- ここまで提出ボタン -->
 
 
-
 </form>
+<!-- ここまでフォーム -->
+
+
+
+<!-- フッター -->
+<footer></footer>
+<!-- ここまでフッター -->
 
 <style>
+    footer {
+        height: 100px;
+    }
     /* Track: Chrome, Safari, Opera, Edge Chromium */
     
     input[type="range"]::-webkit-slider-runnable-track {
@@ -653,5 +662,29 @@ https://www.mgtnsn.com/blog/google-form-original-html-css/
             var subject_ID = localStorage.getItem("subjectID");
             document.getElementById('subjectID').value = subject_ID;
         } catch (error) {}
+    }
+
+
+
+    const ua = window.navigator.userAgent.toLowerCase()
+    let safari
+    if (ua.indexOf('chrome') !== -1) {
+        safari = false;
+    } else if (ua.indexOf('safari') !== -1) {
+        safari = true;
+    }
+    if (safari) {
+        const btn = document.getElementById('submitBtn');
+        // 送信ボタンが押された際のイベント登録
+        btn.addEventListener('touchend', () => {
+            //未入力の項目を探す
+            const focusElm = document.querySelector('input[type="radio"]:focus,input[type="checkbox"]:focus');
+            if (focusElm) { //スクロールで未入力位置に移動
+                focusElm.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+        })
+
     }
 </script>
